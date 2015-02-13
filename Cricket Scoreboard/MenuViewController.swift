@@ -9,19 +9,10 @@
 import Foundation
 import Cocoa
 
-class MenuItemViewController: NSViewController {
-    
-    @IBOutlet weak var label: NSTextField!
-    
-    @IBOutlet weak var openLink: NSButton!
+class MenuViewController: NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-    }
-    
-    func setLabel(label: String){
-        self.label.stringValue = label
-        self.label.sizeToFit()
     }
     
 }

@@ -12,8 +12,6 @@
 		075AA5131A61A2360015B318 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075AA5111A61A2360015B318 /* MainMenu.xib */; };
 		075AA51F1A61A2360015B318 /* Cricket_ScoreboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AA51E1A61A2360015B318 /* Cricket_ScoreboardTests.swift */; };
 		075AA57C1A63A52E0015B318 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AA57B1A63A52E0015B318 /* Score.swift */; };
-		07DEBA5F1A66C31800B8465F /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07DEBA5E1A66C31800B8465F /* MenuItem.xib */; };
-		07DEBA611A66D4F400B8465F /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEBA601A66D4F400B8465F /* MenuItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +34,6 @@
 		075AA51D1A61A2360015B318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		075AA51E1A61A2360015B318 /* Cricket_ScoreboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cricket_ScoreboardTests.swift; sourceTree = "<group>"; };
 		075AA57B1A63A52E0015B318 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
-		07DEBA5E1A66C31800B8465F /* MenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItem.xib; sourceTree = "<group>"; };
-		07DEBA601A66D4F400B8465F /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +78,6 @@
 				075AA50D1A61A2360015B318 /* AppDelegate.swift */,
 				075AA50F1A61A2360015B318 /* Images.xcassets */,
 				075AA5111A61A2360015B318 /* MainMenu.xib */,
-				07DEBA5E1A66C31800B8465F /* MenuItem.xib */,
-				07DEBA601A66D4F400B8465F /* MenuItemViewController.swift */,
 				075AA50B1A61A2360015B318 /* Supporting Files */,
 				075AA57B1A63A52E0015B318 /* Score.swift */,
 			);
@@ -196,7 +190,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				075AA5101A61A2360015B318 /* Images.xcassets in Resources */,
-				07DEBA5F1A66C31800B8465F /* MenuItem.xib in Resources */,
 				075AA5131A61A2360015B318 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,7 +208,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07DEBA611A66D4F400B8465F /* MenuItemViewController.swift in Sources */,
 				075AA57C1A63A52E0015B318 /* Score.swift in Sources */,
 				075AA50E1A61A2360015B318 /* AppDelegate.swift in Sources */,
 			);
@@ -335,7 +327,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "Cricket Scoreboard";
 			};
 			name = Debug;
 		};
@@ -346,7 +339,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "Cricket Scoreboard";
 			};
 			name = Release;
 		};
@@ -365,7 +359,7 @@
 				);
 				INFOPLIST_FILE = "Cricket ScoreboardTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Cricket ScoreboardTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cricket Scoreboard.app/Contents/MacOS/Cricket Scoreboard";
 			};
 			name = Debug;
@@ -381,7 +375,7 @@
 				);
 				INFOPLIST_FILE = "Cricket ScoreboardTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Cricket ScoreboardTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cricket Scoreboard.app/Contents/MacOS/Cricket Scoreboard";
 			};
 			name = Release;

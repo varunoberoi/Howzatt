@@ -10,7 +10,11 @@ import Foundation
 
 class Score: NSObject, NSXMLParserDelegate {
     
+    // By default first match in the list is selected
     var selectedMatch = 0
+    
+    // Cricinfo RSS Link
+    var RSS_URL = "http://static.cricinfo.com/rss/livescores.xml"
     
     var parser = NSXMLParser()
     var posts = NSMutableArray()
@@ -18,7 +22,7 @@ class Score: NSObject, NSXMLParserDelegate {
     var element = NSString()
     var title1 = NSMutableString()
     var link = NSMutableString()
-    var RSS_URL = "http://static.cricinfo.com/rss/livescores.xml"
+    
     var url = NSURL()
     var onUpdateListener: (String, NSMutableArray) -> Void
     
@@ -34,13 +38,18 @@ class Score: NSObject, NSXMLParserDelegate {
     }
     
     func updateScore(){
+        println("Updating Score")
+        
         posts = []
         parser = NSXMLParser(contentsOfURL: url)!
         parser.delegate = self
         parser.parse()
-        var score = posts[selectedMatch]["title"] as String
-        score = score.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
-        self.onUpdateListener(score, posts)
+        
+        if posts.count > selectedMatch + 1 {
+            var score = posts[selectedMatch]["title"] as String
+            score = score.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            self.onUpdateListener(score, posts)
+        }
     }
     
     
