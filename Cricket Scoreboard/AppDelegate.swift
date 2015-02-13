@@ -27,6 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         
         // Passing an event handler to Score Class
         score = Score(onUpdateListener: displayScore)
+    
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
