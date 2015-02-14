@@ -1,6 +1,6 @@
 # Howzatt!!
 
-![Howzatt icon](http://varunoberoi.github.io/howzzat/images/icon128.png)
+![Howzatt icon](https://varunoberoi.github.io/Howzatt/images/icon128.png)
 
 ## Overview
 
@@ -8,11 +8,11 @@
 
 ### See it live
 
-![Howzatt screenshot](http://varunoberoi.github.io/howzzat/images/screenshot.png =400x)
+![Howzatt screenshot](https://varunoberoi.github.io/Howzatt/images/screenshot.png =400x)
 
 ### Download
 
-You can download the latest precompiled version using [Howzatt!!](http://varunoberoi.github.io/howzzat/blobs/howzatt.png). 
+You can download the latest precompiled version using [Howzatt!!](https://varunoberoi.github.io/Howzatt/blobs/howzatt.zip). 
 
 ### Contribution
 
