@@ -29,7 +29,10 @@ If you have any feedback to share please use [this](http://goo.gl/forms/EQaJdMG9
 + Currently overs information is missing.
 + Run on system startup. 
 
+### Acknowledgements
 
++ [Cricinfo](http://www.espncricinfo.com/) for providing free API for the scores
++ My friend [Sam](https://github.com/samarthagrawal) for the logo ;)
 
 ### License
 

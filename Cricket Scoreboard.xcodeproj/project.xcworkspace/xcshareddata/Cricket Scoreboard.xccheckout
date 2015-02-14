@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>967FEED6-0474-45A3-8EF3-7C0C754272C2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Cricket Scoreboard</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>429E5ABCF60AF5AA13DE16C2DEE2963AB05B5F2B</key>
+		<string>https://github.com/varunoberoi/Howzatt.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Cricket Scoreboard.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>429E5ABCF60AF5AA13DE16C2DEE2963AB05B5F2B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/varunoberoi/Howzatt.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>429E5ABCF60AF5AA13DE16C2DEE2963AB05B5F2B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>429E5ABCF60AF5AA13DE16C2DEE2963AB05B5F2B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Howzatt</string>
+		</dict>
+	</array>
+</dict>
+</plist>
