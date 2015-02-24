@@ -27,6 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         
         // Passing an event handler to Score Class
         score = Score(onUpdateListener: displayScore)
+        score.updateScore()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -73,6 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         sender.state = NSOnState
         
         score.updateScore()
+
     }
     
     // Event Handler for quit menuItem 

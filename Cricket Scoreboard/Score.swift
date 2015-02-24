@@ -31,10 +31,7 @@ class Score: NSObject, NSXMLParserDelegate {
         super.init()
         posts = []
         url = NSURL(string: RSS_URL)!
-        parser = NSXMLParser(contentsOfURL: url)!
-        parser.delegate = self
-        parser.parse()
-        NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "updateScore", userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: "updateScore", userInfo: nil, repeats: true)        
     }
     
     func updateScore(){
@@ -45,7 +42,7 @@ class Score: NSObject, NSXMLParserDelegate {
         parser.delegate = self
         parser.parse()
         
-        if posts.count > selectedMatch + 1 {
+        if posts.count >= selectedMatch + 1 {
             var score = posts[selectedMatch]["title"] as String
             score = score.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
             self.onUpdateListener(score, posts)
