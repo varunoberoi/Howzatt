@@ -14,7 +14,7 @@ class Score: NSObject, NSXMLParserDelegate {
     var selectedMatch = 0
     
     // Cricinfo RSS Link
-    var RSS_URL = "http://static.cricinfo.com/rss/livescores.xml"
+    let RSS_URL = "http://static.cricinfo.com/rss/livescores.xml"
     
     var parser = NSXMLParser()
     var posts = NSMutableArray()
