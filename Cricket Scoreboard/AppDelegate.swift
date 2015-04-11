@@ -51,7 +51,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         
         // Adding new matches to the menu
         for (index, match) in enumerate(matchList) {
-            var item = NSMenuItem(title: match["title"] as! String, action: "selectMatch:", keyEquivalent: match["link"] as! String)
+            var item = NSMenuItem(title: match["title"] as! String, action: "selectMatch:", keyEquivalent: "")
+            var matchLink = match["link"] as! String
+            matchLink = matchLink.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            var matchLinkURL = NSURL(string: matchLink)
+            item.representedObject = matchLinkURL
+
             //item.on
             statusMenu.insertItem(item, atIndex: index)
             item.state = NSOffState
@@ -69,6 +74,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
     
     // On Click Event Handler for menuItems
     @IBAction func selectMatch(sender: NSMenuItem) {
+        if NSEvent.modifierFlags() == NSEventModifierFlags.CommandKeyMask {
+            NSWorkspace.sharedWorkspace().openURL(sender.representedObject as! NSURL);
+        }
         //Uncheck previous match
         statusMenu.itemWithTag(score.selectedMatch)?.state = NSOffState
         
@@ -78,7 +86,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         sender.state = NSOnState
         
         score.updateScore()
-
     }
     
     // Event Handler for quit menuItem 
