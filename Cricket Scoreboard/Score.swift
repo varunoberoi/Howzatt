@@ -43,7 +43,7 @@ class Score: NSObject, NSXMLParserDelegate {
         parser.parse()
         
         if posts.count >= selectedMatch + 1 {
-            var score = posts[selectedMatch]["title"] as String
+            var score = posts[selectedMatch]["title"] as! String
             score = score.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
             self.onUpdateListener(score, posts)
         }

@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         
         // Adding new matches to the menu
         for (index, match) in enumerate(matchList) {
-            var item = NSMenuItem(title: match["title"] as String, action: "selectMatch:", keyEquivalent: match["link"] as String)
+            var item = NSMenuItem(title: match["title"] as! String, action: "selectMatch:", keyEquivalent: match["link"] as! String)
             //item.on
             statusMenu.insertItem(item, atIndex: index)
             item.state = NSOffState
