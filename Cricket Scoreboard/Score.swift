@@ -26,15 +26,15 @@ class Score: NSObject, NSXMLParserDelegate {
     var url = NSURL()
     var onUpdateListener: (String, NSMutableArray) -> Void
     
-    init(onUpdateListener: (String, NSMutableArray) -> Void){
+    init(onUpdateListener: (String, NSMutableArray) -> Void) {
         self.onUpdateListener = onUpdateListener
         super.init()
         posts = []
         url = NSURL(string: RSS_URL)!
-        NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: "updateScore", userInfo: nil, repeats: true)        
+        NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: "updateScore", userInfo: nil, repeats: true)
     }
     
-    func updateScore(){
+    func updateScore() {
         println("Updating Score")
         
         posts = []
@@ -49,9 +49,7 @@ class Score: NSObject, NSXMLParserDelegate {
         }
     }
     
-    
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!)
-    {
+    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!) {
         element = elementName
         if (elementName as NSString).isEqualToString("item")
         {
@@ -64,8 +62,7 @@ class Score: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser!, foundCharacters string: String!)
-    {
+    func parser(parser: NSXMLParser!, foundCharacters string: String!) {
         if element.isEqualToString("title") {
             title1.appendString(string)
         } else if element.isEqualToString("guid") {
@@ -73,8 +70,7 @@ class Score: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!)
-    {
+    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
         if (elementName as NSString).isEqualToString("item") {
             if !title1.isEqual(nil) {
                 elements.setObject(title1, forKey: "title")

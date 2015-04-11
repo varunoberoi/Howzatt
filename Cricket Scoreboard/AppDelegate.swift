@@ -10,11 +10,11 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
-
+    
     @IBOutlet weak var window: NSWindow!
     
     @IBOutlet weak var statusMenu: NSMenu!
-
+    
     var score: Score!
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
@@ -29,9 +29,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         score = Score(onUpdateListener: displayScore)
         score.updateScore()
     }
-
+    
     func applicationWillTerminate(aNotification: NSNotification) {
-     
+        
     }
     
     func appBundleName() -> String {
@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         insertMatchesIntoMenu(matchList)
     }
     
-    func insertMatchesIntoMenu(matchList: NSMutableArray){
+    func insertMatchesIntoMenu(matchList: NSMutableArray) {
         // Clearing previous menuItems
         statusMenu.removeAllItems()
         
@@ -68,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
     }
     
     // On Click Event Handler for menuItems
-    @IBAction func selectMatch(sender: NSMenuItem){
+    @IBAction func selectMatch(sender: NSMenuItem) {
         //Uncheck previous match
         statusMenu.itemWithTag(score.selectedMatch)?.state = NSOffState
         
@@ -82,7 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
     }
     
     // Event Handler for quit menuItem 
-    @IBAction func quit(sender: NSMenuItem){
+    @IBAction func quit(sender: NSMenuItem) {
         NSApplication.sharedApplication().terminate(self)
     }
     
