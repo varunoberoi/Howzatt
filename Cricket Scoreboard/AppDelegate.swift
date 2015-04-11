@@ -34,6 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
      
     }
     
+    func appBundleName() -> String {
+        return NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
+    }
+    
     // Called Every 10 Seconds
     func displayScore(score: String, matchList: NSMutableArray) -> Void {
         statusItem.title = score
@@ -60,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         // Other menuItems
         var seperator = NSMenuItem.separatorItem()
         statusMenu.addItem(seperator)
-        statusMenu.insertItemWithTitle("Quit", action: "quit:", keyEquivalent: "quit", atIndex: matchList.count + 1)
+        statusMenu.insertItemWithTitle("Quit " + self.appBundleName(), action: "quit:", keyEquivalent: "q", atIndex: matchList.count + 1)
     }
     
     // On Click Event Handler for menuItems
