@@ -49,7 +49,7 @@ class Score: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         element = elementName
         if (elementName as NSString).isEqualToString("item")
         {
@@ -62,15 +62,15 @@ class Score: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser!, foundCharacters string: String!) {
+    func parser(parser: NSXMLParser, foundCharacters string: String?) {
         if element.isEqualToString("title") {
-            title1.appendString(string)
+            title1.appendString(string!)
         } else if element.isEqualToString("guid") {
-            link.appendString(string)
+            link.appendString(string!)
         }
     }
     
-    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if (elementName as NSString).isEqualToString("item") {
             if !title1.isEqual(nil) {
                 elements.setObject(title1, forKey: "title")
