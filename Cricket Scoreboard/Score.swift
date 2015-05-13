@@ -14,7 +14,7 @@ class Score: NSObject, NSXMLParserDelegate {
     var selectedMatch = 0
     
     // Cricinfo RSS Link
-    var RSS_URL = "http://static.cricinfo.com/rss/livescores.xml"
+    let RSS_URL = "http://static.cricinfo.com/rss/livescores.xml"
     
     var parser = NSXMLParser()
     var posts = NSMutableArray()
@@ -26,15 +26,15 @@ class Score: NSObject, NSXMLParserDelegate {
     var url = NSURL()
     var onUpdateListener: (String, NSMutableArray) -> Void
     
-    init(onUpdateListener: (String, NSMutableArray) -> Void){
+    init(onUpdateListener: (String, NSMutableArray) -> Void) {
         self.onUpdateListener = onUpdateListener
         super.init()
         posts = []
         url = NSURL(string: RSS_URL)!
-        NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: "updateScore", userInfo: nil, repeats: true)        
+        NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: "updateScore", userInfo: nil, repeats: true)
     }
     
-    func updateScore(){
+    func updateScore() {
         println("Updating Score")
         
         posts = []
@@ -43,15 +43,13 @@ class Score: NSObject, NSXMLParserDelegate {
         parser.parse()
         
         if posts.count >= selectedMatch + 1 {
-            var score = posts[selectedMatch]["title"] as String
+            var score = posts[selectedMatch]["title"] as! String
             score = score.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
             self.onUpdateListener(score, posts)
         }
     }
     
-    
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!)
-    {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         element = elementName
         if (elementName as NSString).isEqualToString("item")
         {
@@ -64,17 +62,15 @@ class Score: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser!, foundCharacters string: String!)
-    {
+    func parser(parser: NSXMLParser, foundCharacters string: String?) {
         if element.isEqualToString("title") {
-            title1.appendString(string)
+            title1.appendString(string!)
         } else if element.isEqualToString("guid") {
-            link.appendString(string)
+            link.appendString(string!)
         }
     }
     
-    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!)
-    {
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if (elementName as NSString).isEqualToString("item") {
             if !title1.isEqual(nil) {
                 elements.setObject(title1, forKey: "title")
