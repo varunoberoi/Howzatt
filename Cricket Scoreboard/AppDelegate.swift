@@ -36,9 +36,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
     
     // Called Every 10 Seconds
     func displayScore(score: String, matchList: NSMutableArray) -> Void {
-        statusItem.title = score
+        statusItem.title = shrinkScore(score)
         statusItem.menu = statusMenu
         insertMatchesIntoMenu(matchList)
+    }
+    
+    func shrinkScore(score: String) -> String {
+        var teamStr = "IND" as String
+        var scoreStr = "123/1" as String
+        
+        var parts = score.componentsSeparatedByString(" v ")
+        
+        var range1: NSRange = (parts[0] as NSString).rangeOfString("*");
+        var range2: NSRange = (parts[1] as NSString).rangeOfString("*");
+        
+        if range1.length == 0 && range2.length == 0 {
+            return score;
+        } else if range2.length != 0 {
+            return parts[1]
+        } else {
+            return parts[0];
+        }
     }
     
     func insertMatchesIntoMenu(matchList: NSMutableArray){
