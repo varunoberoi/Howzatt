@@ -50,11 +50,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         statusMenu.removeAllItems()
         
         // Adding new matches to the menu
-        for (index, match) in enumerate(matchList) {
-            var item = NSMenuItem(title: match["title"] as! String, action: "selectMatch:", keyEquivalent: "")
+        for (index, match) in matchList.enumerate() {
+            let item = NSMenuItem(title: match["title"] as! String, action: "selectMatch:", keyEquivalent: "")
             var matchLink = match["link"] as! String
-            matchLink = matchLink.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-            var matchLinkURL = NSURL(string: matchLink)
+            
+            matchLink = matchLink.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+            
+            let matchLinkURL = NSURL(string: matchLink)
             item.representedObject = matchLinkURL
 
             //item.on
@@ -67,7 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         }
         
         // Other menuItems
-        var seperator = NSMenuItem.separatorItem()
+        let seperator = NSMenuItem.separatorItem()
         statusMenu.addItem(seperator)
         statusMenu.insertItemWithTitle("Quit " + self.appBundleName(), action: "quit:", keyEquivalent: "q", atIndex: matchList.count + 1)
     }

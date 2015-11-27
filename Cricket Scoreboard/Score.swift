@@ -35,7 +35,7 @@ class Score: NSObject, NSXMLParserDelegate {
     }
     
     func updateScore() {
-        println("Updating Score")
+        print("Updating Score")
         
         posts = []
         parser = NSXMLParser(contentsOfURL: url)!
@@ -49,24 +49,21 @@ class Score: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         element = elementName
         if (elementName as NSString).isEqualToString("item")
         {
-            elements = NSMutableDictionary.alloc()
             elements = [:]
-            title1 = NSMutableString.alloc()
             title1 = ""
-            link = NSMutableString.alloc()
             link = ""
         }
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String?) {
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
         if element.isEqualToString("title") {
-            title1.appendString(string!)
+            title1.appendString(string)
         } else if element.isEqualToString("guid") {
-            link.appendString(string!)
+            link.appendString(string)
         }
     }
     
