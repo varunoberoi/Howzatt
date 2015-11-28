@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         statusItem.title = "Loading Matches";
         statusItem.menu = statusMenu
-        
+
         // Passing an event handler to Score Class
         score = Score(onUpdateListener: displayScore)
         score.updateScore()

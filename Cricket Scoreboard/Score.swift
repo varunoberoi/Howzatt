@@ -10,6 +10,8 @@ import Foundation
 
 class Score: NSObject, NSXMLParserDelegate {
     
+    let flags = ["aus": "\u{1F1E6}\u{1F1FA}", "ind": "\u{1F1EE}\u{1F1F3}", "sa": "\u{1F1FF}\u{1F1E6}", "nz": "\u{1F1F3}\u{1F1FF}", "sl":"\u{1F1F1}\u{1F1F0}", "eng": "\u{1F1EC}\u{1F1E7}", "ban": "\u{1F1E7}\u{1F1E9}", "pak":"\u{1F1F5}\u{1F1F0}", "wi":"", "ire": "\u{1F1EE}\u{1F1EA}", "zim": "\u{1F1FF}\u{1F1FC}", "afg": "\u{1F1E6}\u{1F1EB}"]
+    
     // By default first match in the list is selected
     var selectedMatch = 0
     
@@ -68,6 +70,16 @@ class Score: NSObject, NSXMLParserDelegate {
             score = score.componentsSeparatedByString("(")[0].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         }else{
             score = title.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        score = getFlag(score)
+        return score
+    }
+    
+    func getFlag(var score: String) -> String {
+        for (country, flagunicode) in flags {
+            if score.lowercaseString.containsString(country){
+                score = flagunicode + score
+            }
         }
         return score
     }
