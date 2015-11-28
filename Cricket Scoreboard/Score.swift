@@ -43,10 +43,33 @@ class Score: NSObject, NSXMLParserDelegate {
         parser.parse()
         
         if posts.count >= selectedMatch + 1 {
-            var score = posts[selectedMatch]["title"] as! String
-            score = score.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
-            self.onUpdateListener(score, posts)
+            let detailed_match_url = posts[selectedMatch]["link"] as! String
+            let url = NSURL(string: detailed_match_url)
+            let request = NSURLRequest(URL: url!)
+            
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+                let html = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                
+                let parsedscore = self.parseScoreFromPage(html as String, title: self.posts[self.selectedMatch]["title"] as! String)
+                
+                self.onUpdateListener(parsedscore, self.posts)
+            }
         }
+    }
+    
+    func parseScoreFromPage(page:String, title:String) -> String {
+        let strFrom = "<title>"
+        let strTo = "</title>"
+        var score = (page.componentsSeparatedByString(strFrom)[1].componentsSeparatedByString(strTo)[0])
+        if score.containsString("|"){
+            score = score.componentsSeparatedByString("|")[0]
+        }
+        if score.containsString("("){
+            score = score.componentsSeparatedByString("(")[0].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }else{
+            score = title.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        return score
     }
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
@@ -63,7 +86,7 @@ class Score: NSObject, NSXMLParserDelegate {
         if element.isEqualToString("title") {
             title1.appendString(string)
         } else if element.isEqualToString("guid") {
-            link.appendString(string)
+            link.appendString(string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()))
         }
     }
     
