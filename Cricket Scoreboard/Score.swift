@@ -10,10 +10,12 @@ import Foundation
 
 class Score: NSObject, NSXMLParserDelegate {
     
+    // Map storing emoji flags for each country
     let flags = ["aus": "\u{1F1E6}\u{1F1FA}", "ind": "\u{1F1EE}\u{1F1F3}", "sa": "\u{1F1FF}\u{1F1E6}", "nz": "\u{1F1F3}\u{1F1FF}", "sl":"\u{1F1F1}\u{1F1F0}", "eng": "\u{1F1EC}\u{1F1E7}", "ban": "\u{1F1E7}\u{1F1E9}", "pak":"\u{1F1F5}\u{1F1F0}", "wi":"", "ire": "\u{1F1EE}\u{1F1EA}", "zim": "\u{1F1FF}\u{1F1FC}", "afg": "\u{1F1E6}\u{1F1EB}"]
     
     // By default first match in the list is selected
     var selectedMatch = 0
+    let matchListUpdateInterval = 25.0
     
     // Cricinfo RSS Link
     let RSS_URL = "http://static.cricinfo.com/rss/livescores.xml"
@@ -33,7 +35,7 @@ class Score: NSObject, NSXMLParserDelegate {
         super.init()
         posts = []
         url = NSURL(string: RSS_URL)!
-        NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: "updateScore", userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(matchListUpdateInterval, target: self, selector: "updateScore", userInfo: nil, repeats: true)
     }
     
     func updateScore() {
@@ -50,16 +52,24 @@ class Score: NSObject, NSXMLParserDelegate {
             let request = NSURLRequest(URL: url!)
             
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+
+                if (error != nil) {
+                    print("Error while fetching html for match page")
+                    return
+                }
+                
                 let html = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                
-                let parsedscore = self.parseScoreFromPage(html as String, title: self.posts[self.selectedMatch]["title"] as! String)
-                
-                self.onUpdateListener(parsedscore, self.posts)
+                do {
+                    let parsedscore = try self.parseScoreFromPage(html as String, title: self.posts[self.selectedMatch]["title"] as! String)
+                    self.onUpdateListener(parsedscore, self.posts)
+                }catch {
+                    print("An error occurred while parsing score")
+                }
             }
         }
     }
     
-    func parseScoreFromPage(page:String, title:String) -> String {
+    func parseScoreFromPage(page:String, title:String) throws -> String {
         let strFrom = "<title>"
         let strTo = "</title>"
         var score = (page.componentsSeparatedByString(strFrom)[1].componentsSeparatedByString(strTo)[0])
