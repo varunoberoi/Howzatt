@@ -17,6 +17,7 @@ You can download the latest precompiled version using [Howzatt!!](https://varuno
 ### Contribution
 
 #### Pull requests are welcome!!
+
 Feel free to contribute to Howzatt!!
 
 If you've fixed a bug or have a feature you've added, just create a pull request.
@@ -25,9 +26,9 @@ If you have any feedback to share please use [this](http://goo.gl/forms/EQaJdMG9
 
 ### Todo
 
-+ Shorten team's names when score is shown in menu bar.
++ ~~Shorten team's names when score is shown in menu bar.~~
 + Currently overs information is missing.
-+ Run on system startup. 
++ Run on system startup.
 
 ### Acknowledgements
 
