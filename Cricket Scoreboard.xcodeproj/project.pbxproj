@@ -331,7 +331,7 @@
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rubird.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rubird.howzatt;
 				PRODUCT_NAME = "Cricket Scoreboard";
 			};
 			name = Debug;
@@ -344,7 +344,7 @@
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rubird.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rubird.howzatt;
 				PRODUCT_NAME = "Cricket Scoreboard";
 			};
 			name = Release;
