@@ -15,6 +15,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
     
     @IBOutlet weak var statusMenu: NSMenu!
     
+//    @IBOutlet weak var searchMenuItem: NSMenuItem!
+    
+    @IBOutlet weak var searchView: SearchView!
+    
     var score: Score!
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
@@ -49,6 +53,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         // Clearing previous menuItems
         statusMenu.removeAllItems()
         
+//        // SearchView
+//        let searchMenuItem = NSMenuItem(title:"Search", action: nil, keyEquivalent: "")
+//        searchView.autoresizingMask = [.ViewHeightSizable, .ViewWidthSizable]
+//        
+//        // Adding search menuItem
+//        searchMenuItem.view = searchView
+//        statusMenu.addItem(searchMenuItem)
+//        searchView.searchField.becomeFirstResponder()
+        
         // Adding new matches to the menu
         for (index, match) in matchList.enumerate() {
             let item = NSMenuItem(title: match["title"] as! String, action: "selectMatch:", keyEquivalent: "")
@@ -60,7 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
             item.representedObject = matchLinkURL
 
             //item.on
-            statusMenu.insertItem(item, atIndex: index)
+            statusMenu.insertItem(item, atIndex: (index))
             item.state = NSOffState
             item.tag = index
             if score.selectedMatch == index {
@@ -71,6 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
         // Other menuItems
         let seperator = NSMenuItem.separatorItem()
         statusMenu.addItem(seperator)
+
         statusMenu.insertItemWithTitle("Quit ", action: "quit:", keyEquivalent: "q", atIndex: matchList.count + 1)
     }
     

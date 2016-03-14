@@ -72,16 +72,32 @@ class Score: NSObject, NSXMLParserDelegate {
     func parseScoreFromPage(page:String, title:String) throws -> String {
         let strFrom = "<title>"
         let strTo = "</title>"
+        
         var score = (page.componentsSeparatedByString(strFrom)[1].componentsSeparatedByString(strTo)[0])
+        var overs = "";
+        
         if score.containsString("|"){
             score = score.componentsSeparatedByString("|")[0]
         }
+        
         if score.containsString("("){
-            score = score.componentsSeparatedByString("(")[0].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            var parts = score.componentsSeparatedByString("(");
+            
+            score = parts[0].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            
+            overs = parts[1];
+            
+            if(overs.containsString("ov")){
+                overs = overs.componentsSeparatedByString("ov")[0].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            }else{
+                overs = ""
+            }
         }else{
             score = title.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         }
+        
         score = getFlag(score)
+        score = score + " (" + overs+" ov)";
         return score
     }
     
