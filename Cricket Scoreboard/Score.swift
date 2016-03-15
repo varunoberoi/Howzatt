@@ -97,7 +97,9 @@ class Score: NSObject, NSXMLParserDelegate {
         }
         
         score = getFlag(score)
-        score = score + " (" + overs+" ov)";
+        if !overs.isEmpty{
+            score = score + " (" + overs+" ov)";
+        }
         return score
     }
     
