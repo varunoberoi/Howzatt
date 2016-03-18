@@ -12,7 +12,7 @@
 
 ### Download
 
-You can download the latest precompiled version using [Howzatt!!](https://varunoberoi.github.io/Howzatt/blobs/howzatt.zip). 
+You can download the latest precompiled version using [Howzatt!!](https://varunoberoi.github.io/Howzatt/blobs/howzzat.zip). 
 
 ### Contribution
 
