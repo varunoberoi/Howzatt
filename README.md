@@ -27,7 +27,7 @@ If you have any feedback to share please use [this](http://goo.gl/forms/EQaJdMG9
 ### Todo
 
 + ~~Shorten team's names when score is shown in menu bar.~~
-+ Currently overs information is missing.
++ ~~Currently overs information is missing.~~
 + Run on system startup.
 
 ### Acknowledgements
