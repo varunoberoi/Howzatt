@@ -9,104 +9,88 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSXMLParserDelegate {
-    
-    @IBOutlet weak var window: NSWindow!
+class AppDelegate: NSObject, NSApplicationDelegate, XMLParserDelegate {
     
     @IBOutlet weak var statusMenu: NSMenu!
-    
-//    @IBOutlet weak var searchMenuItem: NSMenuItem!
-    
-    @IBOutlet weak var searchView: SearchView!
+    @IBOutlet weak var searchMenuItem: NSMenuItem!
     
     var score: Score!
     
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
+    let statusItem = NSStatusBar.system.statusItem(withLength:-1)
     
-    //var tick: NSImage = NSImage(named: "icon")!
-    
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ notification: Notification) {
         statusItem.title = "Loading Matches";
         statusItem.menu = statusMenu
-
+        
         // Passing an event handler to Score Class
         score = Score(onUpdateListener: displayScore)
         score.updateScore()
     }
     
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ notification: Notification) {
         
     }
     
     func appBundleName() -> String {
-        return NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
+        return Bundle.main.infoDictionary!["CFBundleName"] as! String
     }
     
     // Called everytime score updates
-    func displayScore(score: String, matchList: NSMutableArray) -> Void {
+    func displayScore(score: String, matchList: [[String: String]]) -> Void {
         statusItem.title = score
         statusItem.menu = statusMenu
-        insertMatchesIntoMenu(matchList)
+        insertMatchesIntoMenu(matchList: matchList)
     }
     
-    func insertMatchesIntoMenu(matchList: NSMutableArray) {
+    func insertMatchesIntoMenu(matchList: [[String: String]]) {
         // Clearing previous menuItems
         statusMenu.removeAllItems()
         
-//        // SearchView
-//        let searchMenuItem = NSMenuItem(title:"Search", action: nil, keyEquivalent: "")
-//        searchView.autoresizingMask = [.ViewHeightSizable, .ViewWidthSizable]
-//        
-//        // Adding search menuItem
-//        searchMenuItem.view = searchView
-//        statusMenu.addItem(searchMenuItem)
-//        searchView.searchField.becomeFirstResponder()
-        
         // Adding new matches to the menu
-        for (index, match) in matchList.enumerate() {
-            let item = NSMenuItem(title: match["title"] as! String, action: "selectMatch:", keyEquivalent: "")
-            var matchLink = match["link"] as! String
-            
-            matchLink = matchLink.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        for (index, match) in matchList.enumerated() {
+            let item = NSMenuItem(title: match["title"]!, action: #selector(selectMatch), keyEquivalent: "")
+            var matchLink : String = match["link"]!
+            matchLink = matchLink
+                .trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+                .addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
             
             let matchLinkURL = NSURL(string: matchLink)
             item.representedObject = matchLinkURL
 
             //item.on
-            statusMenu.insertItem(item, atIndex: (index))
-            item.state = NSOffState
+            statusMenu.insertItem(item, at: (index))
+            item.state = NSControl.StateValue.off
             item.tag = index
             if score.selectedMatch == index {
-                item.state = NSOnState
+                item.state = NSControl.StateValue.on
             }
         }
         
         // Other menuItems
-        let seperator = NSMenuItem.separatorItem()
+        let seperator = NSMenuItem.separator()
         statusMenu.addItem(seperator)
-
-        statusMenu.insertItemWithTitle("Quit ", action: "quit:", keyEquivalent: "q", atIndex: matchList.count + 1)
+        statusMenu.insertItem(withTitle: "Quit ", action: #selector(quit), keyEquivalent: "q", at: matchList.count + 1)
     }
     
     // On Click Event Handler for menuItems
     @IBAction func selectMatch(sender: NSMenuItem) {
-        if NSEvent.modifierFlags() == NSEventModifierFlags.CommandKeyMask {
-            NSWorkspace.sharedWorkspace().openURL(sender.representedObject as! NSURL);
+        if NSEvent.modifierFlags == NSEvent.ModifierFlags.command {
+            NSWorkspace.shared.open((sender.representedObject as! NSURL) as URL);
         }
         //Uncheck previous match
-        statusMenu.itemWithTag(score.selectedMatch)?.state = NSOffState
+        statusMenu.item(withTag: score.selectedMatch)?.state = NSControl.StateValue.off
         
         score.selectedMatch = sender.tag
         
         // Ticking click match
-        sender.state = NSOnState
+        sender.state = NSControl.StateValue.on
         
         score.updateScore()
     }
     
     // Event Handler for quit menuItem 
     @IBAction func quit(sender: NSMenuItem) {
-        NSApplication.sharedApplication().terminate(self)
+        NSApplication.shared.terminate(self)
     }
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Score: NSObject, NSXMLParserDelegate {
+class Score: NSObject, XMLParserDelegate {
     
     // Map storing emoji flags for each country
     let flags = ["aus": "\u{1F1E6}\u{1F1FA}", "ind": "\u{1F1EE}\u{1F1F3}", "sa": "\u{1F1FF}\u{1F1E6}", "nz": "\u{1F1F3}\u{1F1FF}", "sl":"\u{1F1F1}\u{1F1F0}", "eng": "\u{1F1EC}\u{1F1E7}", "ban": "\u{1F1E7}\u{1F1E9}", "pak":"\u{1F1F5}\u{1F1F0}", "wi":"", "ire": "\u{1F1EE}\u{1F1EA}", "zim": "\u{1F1FF}\u{1F1FC}", "afg": "\u{1F1E6}\u{1F1EB}"]
@@ -18,49 +18,48 @@ class Score: NSObject, NSXMLParserDelegate {
     let matchListUpdateInterval = 25.0
     
     // Cricinfo RSS Link
-    let RSS_URL = "http://static.cricinfo.com/rss/livescores.xml"
+//    let RSS_URL = "http://static.cricinfo.com/rss/livescores.xml"
     
-    var parser = NSXMLParser()
-    var posts = NSMutableArray()
-    var elements = NSMutableDictionary()
+    var parser = XMLParser()
+    var posts = [[String: String]]()
+    var elements = [String: String]()
     var element = NSString()
     var title1 = NSMutableString()
     var link = NSMutableString()
     
-    var url = NSURL()
-    var onUpdateListener: (String, NSMutableArray) -> Void
+    var url = URL(string: "http://static.cricinfo.com/rss/livescores.xml")
+    var onUpdateListener: (String, [[String: String]]) -> Void
     
-    init(onUpdateListener: (String, NSMutableArray) -> Void) {
+    init(onUpdateListener: @escaping (String, [[String: String]]) -> Void) {
         self.onUpdateListener = onUpdateListener
         super.init()
         posts = []
-        url = NSURL(string: RSS_URL)!
-        NSTimer.scheduledTimerWithTimeInterval(matchListUpdateInterval, target: self, selector: "updateScore", userInfo: nil, repeats: true)
+//        url = NSURL(string: RSS_URL)!
+        Timer.scheduledTimer(timeInterval: matchListUpdateInterval, target: self, selector: #selector(updateScore), userInfo: nil, repeats: true)
     }
     
-    func updateScore() {
+    @objc func updateScore() {
         print("Updating Score")
-        
-        posts = []
-        parser = NSXMLParser(contentsOfURL: url)!
+        posts.removeAll();
+        parser = XMLParser(contentsOf: url!)!
         parser.delegate = self
         parser.parse()
         
         if posts.count >= selectedMatch + 1 {
-            let detailed_match_url = posts[selectedMatch]["link"] as! String
-            let url = NSURL(string: detailed_match_url)
-            let request = NSURLRequest(URL: url!)
+            let tmp = posts[selectedMatch]
+            let detailed_match_url = tmp["link"]
+            let url = URL(string: detailed_match_url!)
+            let request = NSURLRequest(url: url!)
             
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
-
+            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main) {(response, data, error) in
                 if (error != nil) {
                     print("Error while fetching html for match page")
                     return
                 }
                 
-                let html = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                let html = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!
                 do {
-                    let parsedscore = try self.parseScoreFromPage(html as String, title: self.posts[self.selectedMatch]["title"] as! String)
+                    let parsedscore = try self.parseScoreFromPage(page: html as String, title: tmp["title"]!)
                     self.onUpdateListener(parsedscore, self.posts)
                 }catch {
                     print("An error occurred while parsing score")
@@ -73,48 +72,49 @@ class Score: NSObject, NSXMLParserDelegate {
         let strFrom = "<title>"
         let strTo = "</title>"
         
-        var score = (page.componentsSeparatedByString(strFrom)[1].componentsSeparatedByString(strTo)[0])
+        var score = (page.components(separatedBy: strFrom)[1].components(separatedBy: strTo)[0])
         var overs = "";
         
-        if score.containsString("|"){
-            score = score.componentsSeparatedByString("|")[0]
+        if score.contains("|"){
+            score = score.components(separatedBy: "|")[0]
         }
         
-        if score.containsString("("){
-            var parts = score.componentsSeparatedByString("(");
+        if score.contains("("){
+            var parts = score.components(separatedBy: "(");
             
-            score = parts[0].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            score = parts[0].trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
             
             overs = parts[1];
             
-            if(overs.containsString("ov")){
-                overs = overs.componentsSeparatedByString("ov")[0].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            if(overs.contains("ov")){
+                overs = overs.components(separatedBy: "ov")[0].trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
             }else{
                 overs = ""
             }
         }else{
-            score = title.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            score = title.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         }
         
-        score = getFlag(score)
+        score = getFlag(score: score)
         if !overs.isEmpty{
             score = score + " (" + overs+" ov)";
         }
         return score
     }
     
-    func getFlag(var score: String) -> String {
+    func getFlag( score: String) -> String {
+        var score = score
         for (country, flagunicode) in flags {
-            if score.lowercaseString.containsString(country){
+            if score.lowercased().contains(country){
                 score = flagunicode + score
             }
         }
         return score
     }
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        element = elementName
-        if (elementName as NSString).isEqualToString("item")
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        element = elementName as NSString
+        if (elementName as NSString).isEqual(to: "item")
         {
             elements = [:]
             title1 = ""
@@ -122,24 +122,23 @@ class Score: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
-        if element.isEqualToString("title") {
-            title1.appendString(string)
-        } else if element.isEqualToString("guid") {
-            link.appendString(string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()))
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        if element.isEqual(to: "title") {
+            title1.append(string)
+        } else if element.isEqual(to: "guid") {
+            link.append(string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines))
         }
     }
     
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if (elementName as NSString).isEqualToString("item") {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if (elementName as NSString).isEqual(to: "item") {
             if !title1.isEqual(nil) {
-                elements.setObject(title1, forKey: "title")
+                elements["title"] = title1 as String
             }
             if !link.isEqual(nil) {
-                elements.setObject(link, forKey: "link")
+                elements["link"] =  link as String
             }
-            
-            posts.addObject(elements)
+            posts.append(elements)
         }
     }
     
