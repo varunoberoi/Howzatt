@@ -91,14 +91,15 @@ class Score: NSObject, XMLParserDelegate {
             }else{
                 overs = ""
             }
-        }else{
+        }
+        
+        if !overs.isEmpty{
+            score = getFlag(score: score)
+            score = score + " (" + overs+" ov)";
+        } else {
             score = title.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         }
         
-        score = getFlag(score: score)
-        if !overs.isEmpty{
-            score = score + " (" + overs+" ov)";
-        }
         return score
     }
     
