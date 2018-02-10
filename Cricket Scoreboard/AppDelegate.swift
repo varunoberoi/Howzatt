@@ -27,10 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, XMLParserDelegate {
         score.updateScore()
     }
     
-    func applicationWillTerminate(_ notification: Notification) {
-        
-    }
-    
     func appBundleName() -> String {
         return Bundle.main.infoDictionary!["CFBundleName"] as! String
     }
@@ -48,42 +44,49 @@ class AppDelegate: NSObject, NSApplicationDelegate, XMLParserDelegate {
         
         // Adding new matches to the menu
         for (index, match) in matchList.enumerated() {
-            let item = NSMenuItem(title: match["title"]!, action: #selector(selectMatch), keyEquivalent: "")
-            var matchLink : String = match["link"]!
-            matchLink = matchLink
-                .trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-                .addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-            
-            let matchLinkURL = NSURL(string: matchLink)
-            item.representedObject = matchLinkURL
+            guard let title = match["title"],
+                let matchLink = match["link"] else { continue }
+
+            let item = NSMenuItem(title: title,
+                                  action: #selector(selectMatch), keyEquivalent: "")
+
+            let matchLinkUrlString = matchLink
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+                .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            if let matchLinkUrlString = matchLinkUrlString,
+                let matchLinkURL = NSURL(string: matchLinkUrlString) {
+                item.representedObject = matchLinkURL
+            }
 
             //item.on
             statusMenu.insertItem(item, at: (index))
-            item.state = NSControl.StateValue.off
+            item.state = .off
             item.tag = index
             if score.selectedMatch == index {
-                item.state = NSControl.StateValue.on
+                item.state = .on
             }
         }
         
         // Other menuItems
         let seperator = NSMenuItem.separator()
         statusMenu.addItem(seperator)
-        statusMenu.insertItem(withTitle: "Quit ", action: #selector(quit), keyEquivalent: "q", at: matchList.count + 1)
+        statusMenu.insertItem(withTitle: "Quit", action: #selector(quit),
+                              keyEquivalent: "q", at: matchList.count + 1)
     }
     
     // On Click Event Handler for menuItems
     @IBAction func selectMatch(sender: NSMenuItem) {
-        if NSEvent.modifierFlags == NSEvent.ModifierFlags.command {
-            NSWorkspace.shared.open((sender.representedObject as! NSURL) as URL);
+        if NSEvent.modifierFlags == .command,
+            let url = sender.representedObject as? NSURL {
+            NSWorkspace.shared.open(url as URL)
         }
         //Uncheck previous match
-        statusMenu.item(withTag: score.selectedMatch)?.state = NSControl.StateValue.off
+        statusMenu.item(withTag: score.selectedMatch)?.state = .off
         
         score.selectedMatch = sender.tag
         
         // Ticking click match
-        sender.state = NSControl.StateValue.on
+        sender.state = .on
         
         score.updateScore()
     }
@@ -92,6 +95,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, XMLParserDelegate {
     @IBAction func quit(sender: NSMenuItem) {
         NSApplication.shared.terminate(self)
     }
-    
 }
 

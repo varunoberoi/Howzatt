@@ -34,37 +34,53 @@ class Score: NSObject, XMLParserDelegate {
         self.onUpdateListener = onUpdateListener
         super.init()
         posts = []
+
 //        url = NSURL(string: RSS_URL)!
-        Timer.scheduledTimer(timeInterval: matchListUpdateInterval, target: self, selector: #selector(updateScore), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: matchListUpdateInterval,
+                             target: self, selector: #selector(updateScore),
+                             userInfo: nil, repeats: true)
     }
     
     @objc func updateScore() {
+        guard let url = url,
+            let xmlParser = XMLParser(contentsOf: url) else { return }
+
         print("Updating Score")
+
         posts.removeAll();
-        parser = XMLParser(contentsOf: url!)!
+
+        parser = xmlParser
         parser.delegate = self
         parser.parse()
         
         if posts.count >= selectedMatch + 1 {
             let tmp = posts[selectedMatch]
-            let detailed_match_url = tmp["link"]
-            let url = URL(string: detailed_match_url!)
-            let request = NSURLRequest(url: url!)
-            
-            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main) {(response, data, error) in
+
+            guard let detailed_match_url = tmp["link"],
+                let detailedMatchUrl = URL(string: detailed_match_url),
+                let title = tmp["title"]
+                else { return }
+
+            let request = NSURLRequest(url: detailedMatchUrl)
+            URLSession.shared.dataTask(with: request as URLRequest)
+            { data, response, error in
                 if (error != nil) {
                     print("Error while fetching html for match page")
                     return
                 }
-                
-                let html = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!
+
+                guard let data = data,
+                    let html = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                    else { return }
+
                 do {
-                    let parsedscore = try self.parseScoreFromPage(page: html as String, title: tmp["title"]!)
+                    let parsedscore = try self.parseScoreFromPage(
+                        page: html as String, title: title)
                     self.onUpdateListener(parsedscore, self.posts)
                 }catch {
                     print("An error occurred while parsing score")
                 }
-            }
+            }.resume()
         }
     }
     
@@ -72,7 +88,8 @@ class Score: NSObject, XMLParserDelegate {
         let strFrom = "<title>"
         let strTo = "</title>"
         
-        var score = (page.components(separatedBy: strFrom)[1].components(separatedBy: strTo)[0])
+        var score = (page.components(separatedBy: strFrom)[1]
+            .components(separatedBy: strTo)[0])
         var overs = "";
         
         if score.contains("|"){
@@ -82,22 +99,21 @@ class Score: NSObject, XMLParserDelegate {
         if score.contains("("){
             var parts = score.components(separatedBy: "(");
             
-            score = parts[0].trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-            
+            score = parts[0].trimmingCharacters(in: .whitespacesAndNewlines)
+
             overs = parts[1];
-            
             if(overs.contains("ov")){
-                overs = overs.components(separatedBy: "ov")[0].trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+                overs = overs.components(separatedBy: "ov")[0].trimmingCharacters(in: .whitespacesAndNewlines)
             }else{
                 overs = ""
             }
         }
         
-        if !overs.isEmpty{
+        if !overs.isEmpty {
             score = getFlag(score: score)
             score = score + " (" + overs+" ov)";
         } else {
-            score = title.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+            score = title.trimmingCharacters(in: .whitespacesAndNewlines)
         }
         
         return score
@@ -115,8 +131,7 @@ class Score: NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         element = elementName as NSString
-        if (elementName as NSString).isEqual(to: "item")
-        {
+        if elementName == "item" {
             elements = [:]
             title1 = ""
             link = ""
@@ -124,15 +139,15 @@ class Score: NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        if element.isEqual(to: "title") {
+        if element == "title" {
             title1.append(string)
-        } else if element.isEqual(to: "guid") {
-            link.append(string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines))
+        } else if element == "guid" {
+            link.append(string.trimmingCharacters(in: .whitespacesAndNewlines))
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if (elementName as NSString).isEqual(to: "item") {
+        if elementName == "item" {
             if !title1.isEqual(nil) {
                 elements["title"] = title1 as String
             }
