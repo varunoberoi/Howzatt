@@ -8,7 +8,7 @@
 
 ### See it live
 
-![Howzatt screenshot](https://varunoberoi.github.io/Howzatt/images/screenshot.png)
+![Howzatt screenshot](https://varunoberoi.github.io/Howzatt/images/screenshot.jpg)
 
 ### Download
 
