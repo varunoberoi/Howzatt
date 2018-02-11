@@ -10,6 +10,10 @@ import Foundation
 
 class Score: NSObject, XMLParserDelegate {
     
+    enum ParsingError: Error {
+        case RuntimeError(String)
+    }
+    
     // Map storing emoji flags for each country
     let flags = ["aus": "\u{1F1E6}\u{1F1FA}", "ind": "\u{1F1EE}\u{1F1F3}", "sa": "\u{1F1FF}\u{1F1E6}", "nz": "\u{1F1F3}\u{1F1FF}", "sl":"\u{1F1F1}\u{1F1F0}", "eng": "\u{1F1EC}\u{1F1E7}", "ban": "\u{1F1E7}\u{1F1E9}", "pak":"\u{1F1F5}\u{1F1F0}", "wi":"", "ire": "\u{1F1EE}\u{1F1EA}", "zim": "\u{1F1FF}\u{1F1FC}", "afg": "\u{1F1E6}\u{1F1EB}"]
     
@@ -71,6 +75,11 @@ class Score: NSObject, XMLParserDelegate {
     func parseScoreFromPage(page:String, title:String) throws -> String {
         let strFrom = "<title>"
         let strTo = "</title>"
+        
+        if(page.components(separatedBy: strFrom).count < 2){
+            print(page.components(separatedBy: strFrom).count)
+            throw ParsingError.RuntimeError("Invalid page string")
+        }
         
         var score = (page.components(separatedBy: strFrom)[1].components(separatedBy: strTo)[0])
         var overs = "";
