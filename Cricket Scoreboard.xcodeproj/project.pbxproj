@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		070BEF5A1C6B34F100087670 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070BEF591C6B34F100087670 /* SearchView.swift */; };
 		075AA50E1A61A2360015B318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AA50D1A61A2360015B318 /* AppDelegate.swift */; };
 		075AA5101A61A2360015B318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075AA50F1A61A2360015B318 /* Images.xcassets */; };
 		075AA5131A61A2360015B318 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075AA5111A61A2360015B318 /* MainMenu.xib */; };
@@ -26,7 +25,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		070BEF591C6B34F100087670 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		075AA5081A61A2360015B318 /* Cricket Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cricket Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		075AA50C1A61A2360015B318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		075AA50D1A61A2360015B318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 				075AA5111A61A2360015B318 /* MainMenu.xib */,
 				075AA50B1A61A2360015B318 /* Supporting Files */,
 				075AA57B1A63A52E0015B318 /* Score.swift */,
-				070BEF591C6B34F100087670 /* SearchView.swift */,
 			);
 			path = "Cricket Scoreboard";
 			sourceTree = "<group>";
@@ -214,7 +211,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				075AA57C1A63A52E0015B318 /* Score.swift in Sources */,
-				070BEF5A1C6B34F100087670 /* SearchView.swift in Sources */,
 				075AA50E1A61A2360015B318 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +294,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -345,6 +342,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -356,7 +354,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rubird.howzatt;
 				PRODUCT_NAME = "Cricket Scoreboard";
 			};
@@ -369,7 +367,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rubird.howzatt;
 				PRODUCT_NAME = "Cricket Scoreboard";
 			};
