@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Howzatt!!
 
 ![Howzatt icon](https://varunoberoi.github.io/Howzatt/images/icon128.png)
