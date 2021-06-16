@@ -11,7 +11,11 @@
 		075AA5101A61A2360015B318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075AA50F1A61A2360015B318 /* Images.xcassets */; };
 		075AA5131A61A2360015B318 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075AA5111A61A2360015B318 /* MainMenu.xib */; };
 		075AA51F1A61A2360015B318 /* Cricket_ScoreboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AA51E1A61A2360015B318 /* Cricket_ScoreboardTests.swift */; };
-		075AA57C1A63A52E0015B318 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AA57B1A63A52E0015B318 /* Score.swift */; };
+		204016FA267AC15A0085C1B0 /* ScoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204016F9267AC15A0085C1B0 /* ScoreError.swift */; };
+		204016FC267AC1790085C1B0 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204016FB267AC1790085C1B0 /* Flags.swift */; };
+		20B60F712679BF6E006A33F0 /* ScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B60F702679BF6E006A33F0 /* ScoreItem.swift */; };
+		20B60F732679BF7F006A33F0 /* ScoreElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B60F722679BF7F006A33F0 /* ScoreElement.swift */; };
+		20B60F752679C2EF006A33F0 /* ScoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B60F742679C2EF006A33F0 /* ScoreRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +37,11 @@
 		075AA5181A61A2360015B318 /* Cricket ScoreboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cricket ScoreboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		075AA51D1A61A2360015B318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		075AA51E1A61A2360015B318 /* Cricket_ScoreboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cricket_ScoreboardTests.swift; sourceTree = "<group>"; };
-		075AA57B1A63A52E0015B318 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		204016F9267AC15A0085C1B0 /* ScoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreError.swift; sourceTree = "<group>"; };
+		204016FB267AC1790085C1B0 /* Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
+		20B60F702679BF6E006A33F0 /* ScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreItem.swift; sourceTree = "<group>"; };
+		20B60F722679BF7F006A33F0 /* ScoreElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreElement.swift; sourceTree = "<group>"; };
+		20B60F742679C2EF006A33F0 /* ScoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,11 +83,12 @@
 		075AA50A1A61A2360015B318 /* Cricket Scoreboard */ = {
 			isa = PBXGroup;
 			children = (
+				20B60F6F2679BF35006A33F0 /* Model */,
+				20B60F742679C2EF006A33F0 /* ScoreRepository.swift */,
 				075AA50D1A61A2360015B318 /* AppDelegate.swift */,
 				075AA50F1A61A2360015B318 /* Images.xcassets */,
 				075AA5111A61A2360015B318 /* MainMenu.xib */,
 				075AA50B1A61A2360015B318 /* Supporting Files */,
-				075AA57B1A63A52E0015B318 /* Score.swift */,
 			);
 			path = "Cricket Scoreboard";
 			sourceTree = "<group>";
@@ -107,6 +116,17 @@
 				075AA51D1A61A2360015B318 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		20B60F6F2679BF35006A33F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20B60F702679BF6E006A33F0 /* ScoreItem.swift */,
+				20B60F722679BF7F006A33F0 /* ScoreElement.swift */,
+				204016F9267AC15A0085C1B0 /* ScoreError.swift */,
+				204016FB267AC1790085C1B0 /* Flags.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +175,7 @@
 			attributes = {
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "Varun Oberoi";
 				TargetAttributes = {
 					075AA5071A61A2360015B318 = {
@@ -210,8 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				075AA57C1A63A52E0015B318 /* Score.swift in Sources */,
 				075AA50E1A61A2360015B318 /* AppDelegate.swift in Sources */,
+				20B60F752679C2EF006A33F0 /* ScoreRepository.swift in Sources */,
+				204016FA267AC15A0085C1B0 /* ScoreError.swift in Sources */,
+				204016FC267AC1790085C1B0 /* Flags.swift in Sources */,
+				20B60F712679BF6E006A33F0 /* ScoreItem.swift in Sources */,
+				20B60F732679BF7F006A33F0 /* ScoreElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +292,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -325,6 +350,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -357,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -370,6 +397,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
