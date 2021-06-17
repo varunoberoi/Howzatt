@@ -11,11 +11,11 @@
 		075AA5101A61A2360015B318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075AA50F1A61A2360015B318 /* Images.xcassets */; };
 		075AA5131A61A2360015B318 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075AA5111A61A2360015B318 /* MainMenu.xib */; };
 		075AA51F1A61A2360015B318 /* Cricket_ScoreboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AA51E1A61A2360015B318 /* Cricket_ScoreboardTests.swift */; };
-		204016FA267AC15A0085C1B0 /* ScoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204016F9267AC15A0085C1B0 /* ScoreError.swift */; };
-		204016FC267AC1790085C1B0 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204016FB267AC1790085C1B0 /* Flags.swift */; };
-		20B60F712679BF6E006A33F0 /* ScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B60F702679BF6E006A33F0 /* ScoreItem.swift */; };
-		20B60F732679BF7F006A33F0 /* ScoreElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B60F722679BF7F006A33F0 /* ScoreElement.swift */; };
-		20B60F752679C2EF006A33F0 /* ScoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B60F742679C2EF006A33F0 /* ScoreRepository.swift */; };
+		07A8CC1E267BA19300011225 /* ScoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC1D267BA19300011225 /* ScoreAPI.swift */; };
+		07A8CC20267BA1C300011225 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC1F267BA1C300011225 /* Match.swift */; };
+		07A8CC24267BA1F700011225 /* String+MinimumEditDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC21267BA1F700011225 /* String+MinimumEditDistance.swift */; };
+		07A8CC25267BA1F700011225 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC22267BA1F700011225 /* String+Regex.swift */; };
+		07A8CC26267BA1F700011225 /* NSRegularExpression+match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC23267BA1F700011225 /* NSRegularExpression+match.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +37,11 @@
 		075AA5181A61A2360015B318 /* Cricket ScoreboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cricket ScoreboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		075AA51D1A61A2360015B318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		075AA51E1A61A2360015B318 /* Cricket_ScoreboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cricket_ScoreboardTests.swift; sourceTree = "<group>"; };
-		204016F9267AC15A0085C1B0 /* ScoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreError.swift; sourceTree = "<group>"; };
-		204016FB267AC1790085C1B0 /* Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
-		20B60F702679BF6E006A33F0 /* ScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreItem.swift; sourceTree = "<group>"; };
-		20B60F722679BF7F006A33F0 /* ScoreElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreElement.swift; sourceTree = "<group>"; };
-		20B60F742679C2EF006A33F0 /* ScoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRepository.swift; sourceTree = "<group>"; };
+		07A8CC1D267BA19300011225 /* ScoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAPI.swift; sourceTree = "<group>"; };
+		07A8CC1F267BA1C300011225 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		07A8CC21267BA1F700011225 /* String+MinimumEditDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MinimumEditDistance.swift"; sourceTree = "<group>"; };
+		07A8CC22267BA1F700011225 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
+		07A8CC23267BA1F700011225 /* NSRegularExpression+match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+match.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +83,15 @@
 		075AA50A1A61A2360015B318 /* Cricket Scoreboard */ = {
 			isa = PBXGroup;
 			children = (
+				07A8CC23267BA1F700011225 /* NSRegularExpression+match.swift */,
+				07A8CC21267BA1F700011225 /* String+MinimumEditDistance.swift */,
+				07A8CC22267BA1F700011225 /* String+Regex.swift */,
 				20B60F6F2679BF35006A33F0 /* Model */,
-				20B60F742679C2EF006A33F0 /* ScoreRepository.swift */,
 				075AA50D1A61A2360015B318 /* AppDelegate.swift */,
 				075AA50F1A61A2360015B318 /* Images.xcassets */,
 				075AA5111A61A2360015B318 /* MainMenu.xib */,
 				075AA50B1A61A2360015B318 /* Supporting Files */,
+				07A8CC1D267BA19300011225 /* ScoreAPI.swift */,
 			);
 			path = "Cricket Scoreboard";
 			sourceTree = "<group>";
@@ -121,10 +124,7 @@
 		20B60F6F2679BF35006A33F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				20B60F702679BF6E006A33F0 /* ScoreItem.swift */,
-				20B60F722679BF7F006A33F0 /* ScoreElement.swift */,
-				204016F9267AC15A0085C1B0 /* ScoreError.swift */,
-				204016FB267AC1790085C1B0 /* Flags.swift */,
+				07A8CC1F267BA1C300011225 /* Match.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -180,6 +180,7 @@
 				TargetAttributes = {
 					075AA5071A61A2360015B318 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 89X9RLE56U;
 					};
 					075AA5171A61A2360015B318 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -230,12 +231,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A8CC1E267BA19300011225 /* ScoreAPI.swift in Sources */,
 				075AA50E1A61A2360015B318 /* AppDelegate.swift in Sources */,
-				20B60F752679C2EF006A33F0 /* ScoreRepository.swift in Sources */,
-				204016FA267AC15A0085C1B0 /* ScoreError.swift in Sources */,
-				204016FC267AC1790085C1B0 /* Flags.swift in Sources */,
-				20B60F712679BF6E006A33F0 /* ScoreItem.swift in Sources */,
-				20B60F732679BF7F006A33F0 /* ScoreElement.swift in Sources */,
+				07A8CC26267BA1F700011225 /* NSRegularExpression+match.swift in Sources */,
+				07A8CC20267BA1C300011225 /* Match.swift in Sources */,
+				07A8CC25267BA1F700011225 /* String+Regex.swift in Sources */,
+				07A8CC24267BA1F700011225 /* String+MinimumEditDistance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,9 +318,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -369,9 +370,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -385,9 +386,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 89X9RLE56U;
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rubird.howzatt;
 				PRODUCT_NAME = "Cricket Scoreboard";
 			};
@@ -399,9 +403,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 89X9RLE56U;
 				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rubird.howzatt;
 				PRODUCT_NAME = "Cricket Scoreboard";
 			};
