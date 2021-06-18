@@ -10,12 +10,12 @@
 		075AA50E1A61A2360015B318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AA50D1A61A2360015B318 /* AppDelegate.swift */; };
 		075AA5101A61A2360015B318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075AA50F1A61A2360015B318 /* Images.xcassets */; };
 		075AA5131A61A2360015B318 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075AA5111A61A2360015B318 /* MainMenu.xib */; };
-		075AA51F1A61A2360015B318 /* Cricket_ScoreboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AA51E1A61A2360015B318 /* Cricket_ScoreboardTests.swift */; };
-		204016FA267AC15A0085C1B0 /* ScoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204016F9267AC15A0085C1B0 /* ScoreError.swift */; };
-		204016FC267AC1790085C1B0 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204016FB267AC1790085C1B0 /* Flags.swift */; };
-		20B60F712679BF6E006A33F0 /* ScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B60F702679BF6E006A33F0 /* ScoreItem.swift */; };
-		20B60F732679BF7F006A33F0 /* ScoreElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B60F722679BF7F006A33F0 /* ScoreElement.swift */; };
-		20B60F752679C2EF006A33F0 /* ScoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B60F742679C2EF006A33F0 /* ScoreRepository.swift */; };
+		075AA51F1A61A2360015B318 /* HowzattTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AA51E1A61A2360015B318 /* HowzattTests.swift */; };
+		07A8CC1E267BA19300011225 /* ScoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC1D267BA19300011225 /* ScoreAPI.swift */; };
+		07A8CC20267BA1C300011225 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC1F267BA1C300011225 /* Match.swift */; };
+		07A8CC24267BA1F700011225 /* String+MinimumEditDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC21267BA1F700011225 /* String+MinimumEditDistance.swift */; };
+		07A8CC25267BA1F700011225 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC22267BA1F700011225 /* String+Regex.swift */; };
+		07A8CC26267BA1F700011225 /* NSRegularExpression+match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CC23267BA1F700011225 /* NSRegularExpression+match.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,19 +29,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		075AA5081A61A2360015B318 /* Cricket Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cricket Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		075AA5081A61A2360015B318 /* Howzatt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Howzatt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		075AA50C1A61A2360015B318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		075AA50D1A61A2360015B318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		075AA50F1A61A2360015B318 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		075AA5121A61A2360015B318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		075AA5181A61A2360015B318 /* Cricket ScoreboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cricket ScoreboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		075AA5181A61A2360015B318 /* HowzattTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HowzattTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		075AA51D1A61A2360015B318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		075AA51E1A61A2360015B318 /* Cricket_ScoreboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cricket_ScoreboardTests.swift; sourceTree = "<group>"; };
-		204016F9267AC15A0085C1B0 /* ScoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreError.swift; sourceTree = "<group>"; };
-		204016FB267AC1790085C1B0 /* Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
-		20B60F702679BF6E006A33F0 /* ScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreItem.swift; sourceTree = "<group>"; };
-		20B60F722679BF7F006A33F0 /* ScoreElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreElement.swift; sourceTree = "<group>"; };
-		20B60F742679C2EF006A33F0 /* ScoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRepository.swift; sourceTree = "<group>"; };
+		075AA51E1A61A2360015B318 /* HowzattTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowzattTests.swift; path = HowzattTests/HowzattTests.swift; sourceTree = SOURCE_ROOT; };
+		07A8CC1D267BA19300011225 /* ScoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAPI.swift; sourceTree = "<group>"; };
+		07A8CC1F267BA1C300011225 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		07A8CC21267BA1F700011225 /* String+MinimumEditDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MinimumEditDistance.swift"; sourceTree = "<group>"; };
+		07A8CC22267BA1F700011225 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
+		07A8CC23267BA1F700011225 /* NSRegularExpression+match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+match.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 		075AA4FF1A61A2360015B318 = {
 			isa = PBXGroup;
 			children = (
-				075AA50A1A61A2360015B318 /* Cricket Scoreboard */,
-				075AA51B1A61A2360015B318 /* Cricket ScoreboardTests */,
+				075AA50A1A61A2360015B318 /* Howzatt */,
+				075AA51B1A61A2360015B318 /* HowzattTests */,
 				075AA5091A61A2360015B318 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,23 +74,26 @@
 		075AA5091A61A2360015B318 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				075AA5081A61A2360015B318 /* Cricket Scoreboard.app */,
-				075AA5181A61A2360015B318 /* Cricket ScoreboardTests.xctest */,
+				075AA5081A61A2360015B318 /* Howzatt.app */,
+				075AA5181A61A2360015B318 /* HowzattTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		075AA50A1A61A2360015B318 /* Cricket Scoreboard */ = {
+		075AA50A1A61A2360015B318 /* Howzatt */ = {
 			isa = PBXGroup;
 			children = (
+				07A8CC23267BA1F700011225 /* NSRegularExpression+match.swift */,
+				07A8CC21267BA1F700011225 /* String+MinimumEditDistance.swift */,
+				07A8CC22267BA1F700011225 /* String+Regex.swift */,
 				20B60F6F2679BF35006A33F0 /* Model */,
-				20B60F742679C2EF006A33F0 /* ScoreRepository.swift */,
 				075AA50D1A61A2360015B318 /* AppDelegate.swift */,
 				075AA50F1A61A2360015B318 /* Images.xcassets */,
 				075AA5111A61A2360015B318 /* MainMenu.xib */,
 				075AA50B1A61A2360015B318 /* Supporting Files */,
+				07A8CC1D267BA19300011225 /* ScoreAPI.swift */,
 			);
-			path = "Cricket Scoreboard";
+			path = Howzatt;
 			sourceTree = "<group>";
 		};
 		075AA50B1A61A2360015B318 /* Supporting Files */ = {
@@ -101,14 +104,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		075AA51B1A61A2360015B318 /* Cricket ScoreboardTests */ = {
+		075AA51B1A61A2360015B318 /* HowzattTests */ = {
 			isa = PBXGroup;
 			children = (
-				075AA51E1A61A2360015B318 /* Cricket_ScoreboardTests.swift */,
+				075AA51E1A61A2360015B318 /* HowzattTests.swift */,
 				075AA51C1A61A2360015B318 /* Supporting Files */,
 			);
-			path = "Cricket ScoreboardTests";
-			sourceTree = "<group>";
+			path = HowzattTests;
+			sourceTree = SOURCE_ROOT;
 		};
 		075AA51C1A61A2360015B318 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -121,10 +124,7 @@
 		20B60F6F2679BF35006A33F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				20B60F702679BF6E006A33F0 /* ScoreItem.swift */,
-				20B60F722679BF7F006A33F0 /* ScoreElement.swift */,
-				204016F9267AC15A0085C1B0 /* ScoreError.swift */,
-				204016FB267AC1790085C1B0 /* Flags.swift */,
+				07A8CC1F267BA1C300011225 /* Match.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -132,9 +132,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		075AA5071A61A2360015B318 /* Cricket Scoreboard */ = {
+		075AA5071A61A2360015B318 /* Howzatt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 075AA5221A61A2360015B318 /* Build configuration list for PBXNativeTarget "Cricket Scoreboard" */;
+			buildConfigurationList = 075AA5221A61A2360015B318 /* Build configuration list for PBXNativeTarget "Howzatt" */;
 			buildPhases = (
 				075AA5041A61A2360015B318 /* Sources */,
 				075AA5051A61A2360015B318 /* Frameworks */,
@@ -144,14 +144,14 @@
 			);
 			dependencies = (
 			);
-			name = "Cricket Scoreboard";
+			name = Howzatt;
 			productName = "Cricket Scoreboard";
-			productReference = 075AA5081A61A2360015B318 /* Cricket Scoreboard.app */;
+			productReference = 075AA5081A61A2360015B318 /* Howzatt.app */;
 			productType = "com.apple.product-type.application";
 		};
-		075AA5171A61A2360015B318 /* Cricket ScoreboardTests */ = {
+		075AA5171A61A2360015B318 /* HowzattTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 075AA5251A61A2360015B318 /* Build configuration list for PBXNativeTarget "Cricket ScoreboardTests" */;
+			buildConfigurationList = 075AA5251A61A2360015B318 /* Build configuration list for PBXNativeTarget "HowzattTests" */;
 			buildPhases = (
 				075AA5141A61A2360015B318 /* Sources */,
 				075AA5151A61A2360015B318 /* Frameworks */,
@@ -162,9 +162,9 @@
 			dependencies = (
 				075AA51A1A61A2360015B318 /* PBXTargetDependency */,
 			);
-			name = "Cricket ScoreboardTests";
+			name = HowzattTests;
 			productName = "Cricket ScoreboardTests";
-			productReference = 075AA5181A61A2360015B318 /* Cricket ScoreboardTests.xctest */;
+			productReference = 075AA5181A61A2360015B318 /* HowzattTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -180,6 +180,8 @@
 				TargetAttributes = {
 					075AA5071A61A2360015B318 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 89X9RLE56U;
+						ProvisioningStyle = Automatic;
 					};
 					075AA5171A61A2360015B318 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -187,7 +189,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 075AA5031A61A2360015B318 /* Build configuration list for PBXProject "Cricket Scoreboard" */;
+			buildConfigurationList = 075AA5031A61A2360015B318 /* Build configuration list for PBXProject "Howzatt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -200,8 +202,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				075AA5071A61A2360015B318 /* Cricket Scoreboard */,
-				075AA5171A61A2360015B318 /* Cricket ScoreboardTests */,
+				075AA5071A61A2360015B318 /* Howzatt */,
+				075AA5171A61A2360015B318 /* HowzattTests */,
 			);
 		};
 /* End PBXProject section */
@@ -230,12 +232,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A8CC1E267BA19300011225 /* ScoreAPI.swift in Sources */,
 				075AA50E1A61A2360015B318 /* AppDelegate.swift in Sources */,
-				20B60F752679C2EF006A33F0 /* ScoreRepository.swift in Sources */,
-				204016FA267AC15A0085C1B0 /* ScoreError.swift in Sources */,
-				204016FC267AC1790085C1B0 /* Flags.swift in Sources */,
-				20B60F712679BF6E006A33F0 /* ScoreItem.swift in Sources */,
-				20B60F732679BF7F006A33F0 /* ScoreElement.swift in Sources */,
+				07A8CC26267BA1F700011225 /* NSRegularExpression+match.swift in Sources */,
+				07A8CC20267BA1C300011225 /* Match.swift in Sources */,
+				07A8CC25267BA1F700011225 /* String+Regex.swift in Sources */,
+				07A8CC24267BA1F700011225 /* String+MinimumEditDistance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				075AA51F1A61A2360015B318 /* Cricket_ScoreboardTests.swift in Sources */,
+				075AA51F1A61A2360015B318 /* HowzattTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +254,7 @@
 /* Begin PBXTargetDependency section */
 		075AA51A1A61A2360015B318 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 075AA5071A61A2360015B318 /* Cricket Scoreboard */;
+			target = 075AA5071A61A2360015B318 /* Howzatt */;
 			targetProxy = 075AA5191A61A2360015B318 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -300,6 +302,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -317,9 +320,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -359,6 +362,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -369,9 +373,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -384,12 +388,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 89X9RLE56U;
+				INFOPLIST_FILE = Howzatt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rubird.howzatt;
-				PRODUCT_NAME = "Cricket Scoreboard";
+				PRODUCT_NAME = Howzatt;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -398,12 +407,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Cricket Scoreboard/Info.plist";
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 89X9RLE56U;
+				INFOPLIST_FILE = Howzatt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rubird.howzatt;
-				PRODUCT_NAME = "Cricket Scoreboard";
+				PRODUCT_NAME = Howzatt;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -420,11 +434,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Cricket ScoreboardTests/Info.plist";
+				INFOPLIST_FILE = HowzattTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rubird.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "Cricket ScoreboardTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cricket Scoreboard.app/Contents/MacOS/Cricket Scoreboard";
+				PRODUCT_NAME = HowzattTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Howzatt.app/Contents/MacOS/Howzatt";
 			};
 			name = Debug;
 		};
@@ -437,18 +451,18 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Cricket ScoreboardTests/Info.plist";
+				INFOPLIST_FILE = HowzattTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rubird.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "Cricket ScoreboardTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cricket Scoreboard.app/Contents/MacOS/Cricket Scoreboard";
+				PRODUCT_NAME = HowzattTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Howzatt.app/Contents/MacOS/Howzatt";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		075AA5031A61A2360015B318 /* Build configuration list for PBXProject "Cricket Scoreboard" */ = {
+		075AA5031A61A2360015B318 /* Build configuration list for PBXProject "Howzatt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				075AA5201A61A2360015B318 /* Debug */,
@@ -457,7 +471,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		075AA5221A61A2360015B318 /* Build configuration list for PBXNativeTarget "Cricket Scoreboard" */ = {
+		075AA5221A61A2360015B318 /* Build configuration list for PBXNativeTarget "Howzatt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				075AA5231A61A2360015B318 /* Debug */,
@@ -466,7 +480,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		075AA5251A61A2360015B318 /* Build configuration list for PBXNativeTarget "Cricket ScoreboardTests" */ = {
+		075AA5251A61A2360015B318 /* Build configuration list for PBXNativeTarget "HowzattTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				075AA5261A61A2360015B318 /* Debug */,

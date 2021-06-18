@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Cricket Scoreboard.xcodeproj">
+      location = "self:/Users/varunoberoi/XcodeOSXProjects/Howzatt/Howzatt.xcodeproj">
    </FileRef>
 </Workspace>

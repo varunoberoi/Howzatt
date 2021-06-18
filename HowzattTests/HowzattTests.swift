@@ -9,7 +9,7 @@
 import Cocoa
 import XCTest
 
-class Cricket_ScoreboardTests: XCTestCase {
+class HowzattTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
