@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Howzatt!!
 
-![Howzatt icon](https://varunoberoi.github.io/Howzatt/images/icon128.png)
+![Howzatt icon](https://raw.githubusercontent.com/varunoberoi/Howzatt/master/assets/icon128.png)
 
 ## Overview
 
@@ -9,7 +9,7 @@
 
 ### See it live
 
-![Howzatt screenshot](https://varunoberoi.github.io/Howzatt/images/screenshot.jpg)
+![Howzatt screenshot](https://raw.githubusercontent.com/varunoberoi/Howzatt/master/assets/screenshot.jpg)
 
 ### Contribution
 
