@@ -31,7 +31,7 @@ class ScoreAPI: NSObject {
     }
     
     private let liveScoresUrl =
-        URL(string: "http://static.cricinfo.com/rss/livescores.xml")!
+        URL(string: "http://static.espncricinfo.com/rss/livescores.xml")!
     
     private var allMatchScores = [Match]()
     private var currentScoreElement: ScoreElement?
@@ -172,7 +172,7 @@ extension ScoreAPI: XMLParserDelegate {
                     string.trimmingCharacters(in: .whitespacesAndNewlines))
             case .guid:
                 currentLink.append(
-                    string.trimmingCharacters(in: .whitespacesAndNewlines))
+                    string.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "cricinfo", with: "espncricinfo"))
             }
         }
     }
